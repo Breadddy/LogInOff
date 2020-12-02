@@ -11,7 +11,8 @@ switch ($_POST['operation'])
     case 'division': $r=division($a,$b); break;
     default: $_SESSION['result']='Выбрана некорректная операция';
 }
-$_SESSION['result']=$r;
+if(isset($r))
+    $_SESSION['result']=$r;
 header("Location: {$_SERVER['HTTP_REFERER']}");
 
 function plus($a,$b)
